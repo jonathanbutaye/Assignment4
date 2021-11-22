@@ -31,7 +31,7 @@ class driver;
         $display("[%t | DRV] instruction passed to ifc: %s", $time, instr.toString());
       end else begin
         this.ifc.valid <= 0;
-        $$display("[%t | DRV] no instruction in mailbox", $time);
+        $display("[%t | DRV] no instruction in mailbox", $time);
       end
     end
 
