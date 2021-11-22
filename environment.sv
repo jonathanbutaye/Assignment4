@@ -60,7 +60,7 @@ class environment;
       fork
         this.gen.run();
         this.scb.run(2100);
-      join
+      join_any
 
       /* wait for some spin down *****************/
       repeat (10) @(posedge this.ifc.clock);
