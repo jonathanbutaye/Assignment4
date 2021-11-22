@@ -4,8 +4,9 @@
 class instruction;
     rand byte instruction;
 
+    //constraint for ADD, ADC
     constraint instruction_constraint {
-        (instruction[7:4] inside {'h8, 'h9});
+        (instruction[7:4] inside {'h8});
     }
     
     function new();
