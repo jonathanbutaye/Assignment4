@@ -1,13 +1,16 @@
-`include "transaction.sv"
-`include "transaction_old.sv"
+//`include "transaction.sv"
+//`include "transaction_old.sv"
+`include "instruction.sv"
+`include "GbProcModel.sv"
 
 class checkers;
 
-  mailbox #(transaction) gen2che;
-  mailbox #(transactionOld) mon2che;
+  mailbox #(instruction) gen2che;
+  mailbox #(probe) mon2che;
   mailbox #(byte) che2scb;
+  gameboyprocessor model;
 
-  function new(mailbox #(transaction) g2c, mailbox #(transactionOld) m2c, mailbox #(byte) c2s);
+  function new(mailbox #(instruction) g2c, mailbox #(instruction) m2c, mailbox #(byte) c2s);
     this.gen2che = g2c;
     this.mon2che = m2c;
     this.che2scb = c2s;

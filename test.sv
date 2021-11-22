@@ -1,7 +1,7 @@
-`include "ALU_iface.sv"
+`include "GBP_iface.sv"
 `include "environment.sv"
 
-module test(ALU_iface ifc);
+module test(GBP_iface ifc);
 
   environment env = new(ifc);
 

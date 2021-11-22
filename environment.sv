@@ -1,6 +1,10 @@
-`include "ALU_iface.sv"
-`include "transaction.sv"
-`include "transaction_old.sv"
+`ifndef SV_ENV
+`define SV_ENV
+
+`include "GBP_iface.sv"
+`include "instruction.sv"
+//`include "transaction.sv"
+//`include "transaction_old.sv"
 `include "generator.sv"
 `include "driver.sv"
 `include "monitor.sv"
@@ -9,9 +13,9 @@
 
 class environment;
 
-  mailbox #(transaction) gen2drv;
-  mailbox #(transaction) gen2che;
-  mailbox #(transactionOld) mon2che;
+  mailbox #(instruction) gen2drv;
+  mailbox #(instruction) gen2che;
+  mailbox #(instruction) mon2che;
   mailbox #(byte) che2scb;
 
   virtual ALU_iface ifc;
@@ -22,7 +26,7 @@ class environment;
   checkers che;
   scoreboard scb;
 
-  function new(virtual ALU_iface ifc);
+  function new(virtual GBP_iface ifc);
     this.ifc = ifc;
 
     this.gen2drv = new(2200);
@@ -42,7 +46,7 @@ class environment;
       /* start the upstream **********************/
       fork
         this.mon.run();
-        this.drv.run_addition();
+        this.drv.run();
         this.che.run();
       join_none;
 
@@ -70,3 +74,4 @@ class environment;
 
 endclass : environment
 
+`endif
