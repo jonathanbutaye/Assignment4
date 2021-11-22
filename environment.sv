@@ -3,6 +3,7 @@
 
 `include "GBP_iface.sv"
 `include "instruction.sv"
+`include "probe.sv"
 `include "generator.sv"
 `include "driver.sv"
 `include "monitor.sv"
@@ -14,7 +15,7 @@ class environment;
 
   mailbox #(instruction) gen2drv;
   mailbox #(instruction) gen2che;
-  mailbox #(instruction) mon2che;
+  mailbox #(probe) mon2che;
   mailbox #(byte) che2scb;
 
   virtual GBP_iface ifc;
