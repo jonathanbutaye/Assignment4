@@ -46,6 +46,7 @@ class environment;
   task run();
     fork
       /* start the upstream **********************/
+      this.drv.reset();
       fork
         this.mon.run();
         this.drv.run();
