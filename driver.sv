@@ -41,9 +41,9 @@ class driver;
 
   task reset();
         @(negedge this.ifc.clock);
-        this.ifc.reset <= 1;
+        this.ifc.rst <= 1;
         @(negedge this.ifc.clock);
-        this.ifc.reset <= 0;
+        this.ifc.rst <= 0;
         @(negedge this.ifc.clock);
         $display("[%t | DRV] Reset executed", $time);
     endtask : reset
