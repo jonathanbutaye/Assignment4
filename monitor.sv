@@ -1,29 +1,29 @@
-`include "transaction.sv"
-`include "transaction_old.sv"
+
+`include "probe.sv"
 
 class monitor;
 
-  virtual ALU_iface ifc;
-  mailbox #(transactionOld) mon2che;
+  virtual GBP_iface ifc;
+  mailbox #(probe) mon2che;
 
-  function new(virtual ALU_iface ifc, mailbox #(transactionOld) m2c);
+  function new(virtual GBP_iface ifc, mailbox #(probe) m2c);
     this.ifc = ifc;
     this.mon2che = m2c;
   endfunction : new
 
   task run();
-    
-    transactionOld tra;
+    probe probe;
+    byte valid;
 
-    forever begin
-      @(negedge this.ifc.clock);
-        //create a transaction to pass to the checkers class object
-        //format to create new transaction: function new(byte A, byte B, bit[3:0] flags_in, bit[2:0] operation, byte Z, bit[3:0] flags_out);
-        tra = new(this.ifc.data_a, this.ifc.data_b, this.ifc.flags_in, this.ifc.operation, this.ifc.data_z, this.ifc.flags_out);
-        if (tra.A || tra.B || tra.flags_in || tra.operation) begin
-          this.mon2che.put(tra);
+     forever begin
+            @(negedge this.ifc.clock);
+            valid = ifc.valid;
+            if (valid) begin
+                probe = new(ifc.probe);
+                $display("[%t | MON] Recieved: %s", $time, probe.toString());
+                mon2che.put(probe);
+            end
         end
-    end /* forever */
   endtask : run
 
 endclass : monitor

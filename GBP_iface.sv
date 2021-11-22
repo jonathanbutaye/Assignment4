@@ -9,7 +9,7 @@ interface GBP_iface (
   logic rst;
   logic [7:0] instr;
   logic valid;
-  logic [15-1:0] probe;
+  logic [15:0] probe;
 
 endinterface
 

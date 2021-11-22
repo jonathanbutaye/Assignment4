@@ -28,10 +28,10 @@ class driver;
       if(instrInMailbox) begin
         this.ifc.valid <= 1;
         this.ifc.instr <= instr.instruction;
-        $display("[DRV] instruction passed to ifc");
+        $display("[%t | DRV] instruction passed to ifc: %s", $time, instr.toString());
       end else begin
         this.ifc.valid <= 0;
-        $$display("[DRV] no instruction in mailbox");
+        $$display("[%t | DRV] no instruction in mailbox", $time);
       end
     end
 

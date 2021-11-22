@@ -5,7 +5,7 @@ class probe;
     byte A;
     byte F;
 
-    function new(byte a, byte f);
+    function new(shortint probe);
         this.A = probe[15:8];
         this.F = probe[7:0];
     endfunction 

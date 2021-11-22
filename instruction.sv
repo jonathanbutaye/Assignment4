@@ -11,6 +11,10 @@ class instruction;
     function new();
         this.instruction = 0;
     endfunction 
+
+    function string toString();
+        return $sformatf("Instruction: %02x", this.instruction);          
+    endfunction
 endclass 
 
 `endif

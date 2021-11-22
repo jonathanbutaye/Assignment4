@@ -1,4 +1,4 @@
-//`include "transaction.sv"
+
 `include "instruction.sv"
 
 class generator;
@@ -20,7 +20,7 @@ class generator;
   //forever begin
     begin
       this.instr = new();
-      this.tra.instruction_constraint.constraint_mode(1);
+      this.instr.instruction_constraint.constraint_mode(1);
       void'(this.instr.randomize());
       void'(this.gen2drv.try_put(this.tra));
       void'(this.gen2che.try_put(this.tra));
