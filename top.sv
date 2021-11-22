@@ -18,11 +18,11 @@ module top;
   // instantiate the DUT and connect it to the interface
   gbprocessor dut (
 
-    .reset(theInterface.rst);
-    .clock(theInterface.clock);
-    .instruction(theInterface.instr);
-    .valid(theInterface.valid);
-    .probe(theInterface.probe);
+    .reset(theInterface.rst),
+    .clock(theInterface.clock),
+    .instruction(theInterface.instr),
+    .valid(theInterface.valid),
+    .probe(theInterface.probe)
 
     );
 
