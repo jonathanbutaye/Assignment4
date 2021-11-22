@@ -33,7 +33,7 @@ class checkers;
         this.che2scb.put(byte'(0));
         $display("\n[%t | CHE] unsuccesful", $time);
         $display("Received: %s", received_result.toString());
-        model.toString
+        model.toString;
       end
     end
   endtask
