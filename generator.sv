@@ -22,8 +22,8 @@ class generator;
       this.instr = new();
       this.instr.instruction_constraint.constraint_mode(1);
       void'(this.instr.randomize());
-      void'(this.gen2drv.try_put(this.tra));
-      void'(this.gen2che.try_put(this.tra));
+      void'(this.gen2drv.try_put(this.instr));
+      void'(this.gen2che.try_put(this.instr));
     end
     
   endtask : run

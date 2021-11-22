@@ -8,6 +8,7 @@
 `include "monitor.sv"
 `include "checkers.sv"
 `include "scoreboard.sv"
+`include "GbProcModel.sv"
 
 class environment;
 
@@ -23,6 +24,7 @@ class environment;
   monitor mon;
   checkers che;
   scoreboard scb;
+  gameboyprocessor model;
 
   function new(virtual GBP_iface ifc);
     this.ifc = ifc;
@@ -32,10 +34,11 @@ class environment;
     this.mon2che = new(2200);
     this.che2scb = new(2200);
 
+    this.model = new();
     this.gen = new(this.gen2drv, this.gen2che);
     this.drv = new(ifc, this.gen2drv);
     this.mon = new(ifc, this.mon2che);
-    this.che = new(this.gen2che, this.mon2che, this.che2scb);
+    this.che = new(this.gen2che, this.mon2che, this.che2scb, this.model);
     this.scb = new(this.che2scb);
   endfunction : new
 
