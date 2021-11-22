@@ -15,8 +15,8 @@ class generator;
   endfunction : new
 
   task run;
-
-  forever begin
+    for(int i=0; i<100; i++) begin
+    //forever begin
       this.instr = new();
       this.instr.instruction_constraint.constraint_mode(1);
       void'(this.instr.randomize());
