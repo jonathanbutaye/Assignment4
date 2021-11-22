@@ -29,7 +29,7 @@ class driver;
         this.ifc.valid <= 1;
         this.ifc.instr <= instr.instruction;
         $display("[%t | DRV] instruction passed to ifc: %s", $time, instr.toString());
-
+        //Test if setup works when valid signal drops to zero => it works! :)
         @(negedge this.ifc.clock);
         this.ifc.valid <= 0;
         repeat (3) @(negedge this.ifc.clock);
