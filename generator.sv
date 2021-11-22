@@ -16,8 +16,7 @@ class generator;
 
   task run;
 
-  for(int i=0; i<100; i++)
-  //forever begin
+  forever begin
     begin
       this.instr = new();
       this.instr.instruction_constraint.constraint_mode(1);
