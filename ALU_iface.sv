@@ -6,14 +6,11 @@ interface ALU_iface (
   input logic clock
 );
 
-  logic [7:0] data_a;
-  logic [7:0] data_b;
-  logic [7:0] data_z;
-
-  logic [3:0] flags_in;
-  logic [3:0] flags_out;
-  logic [2:0] operation;
-
+  logic reset;
+  logic [7:0] instruction;
+  logic valid;
+  logic [15-1:0] probe;
+  
 endinterface
 
 `endif
