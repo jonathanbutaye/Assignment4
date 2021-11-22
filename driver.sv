@@ -38,6 +38,15 @@ class driver;
     $display("[DRV] ... done");
   
   endtask : run
+
+  task reset();
+        @(negedge this.ifc.clock);
+        this.ifc.reset <= 1;
+        @(negedge this.ifc.clock);
+        this.ifc.reset <= 0;
+        @(negedge this.ifc.clock);
+        $display("[%t | DRV] Reset executed", $time);
+    endtask : reset
 endclass : driver
 
 
