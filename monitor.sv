@@ -17,9 +17,9 @@ class monitor;
 
      forever begin
             @(negedge this.ifc.clock);
-            valid = ifc.valid;
+            valid = this.ifc.valid;
             if (valid) begin
-                probe = new(ifc.probe);
+                probe = new(this.ifc.probe);
                 $display("[%t | MON] Recieved: %s", $time, probe.toString());
                 mon2che.put(probe);
             end
