@@ -3,8 +3,6 @@
 
 `include "GBP_iface.sv"
 `include "instruction.sv"
-//`include "transaction.sv"
-//`include "transaction_old.sv"
 `include "generator.sv"
 `include "driver.sv"
 `include "monitor.sv"
@@ -18,7 +16,7 @@ class environment;
   mailbox #(instruction) mon2che;
   mailbox #(byte) che2scb;
 
-  virtual ALU_iface ifc;
+  virtual GBP_iface ifc;
 
   generator gen;
   driver drv;
