@@ -29,6 +29,11 @@ class driver;
         this.ifc.valid <= 1;
         this.ifc.instr <= instr.instruction;
         $display("[%t | DRV] instruction passed to ifc: %s", $time, instr.toString());
+
+        @(negedge this.ifc.clock);
+        this.ifc.valid <= 0;
+        repeat (3) @(negedge this.ifc.clock);
+
       end else begin
         this.ifc.valid <= 0;
         $display("[%t | DRV] no instruction in mailbox", $time);
