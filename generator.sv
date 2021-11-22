@@ -17,7 +17,6 @@ class generator;
   task run;
 
   forever begin
-    begin
       this.instr = new();
       this.instr.instruction_constraint.constraint_mode(1);
       void'(this.instr.randomize());
