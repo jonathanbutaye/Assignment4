@@ -48,7 +48,7 @@ module top;
 
     //Cross coverpoint between the the two coverpoints above
     cpOperationsAndCarry: cross cpOperationsAdcSbcCp, cpCarryInFlagSet {
-      bins carryInADC = binsof(cpOperationsAdcSbcCp.ADC) && binsof(cpCarryInFlagSet);
+      bins carryInADC = binsof(cpOperationsAdcSbcCp) && binsof(cpCarryInFlagSet);
     }
 
   endgroup
