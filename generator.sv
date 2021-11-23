@@ -14,7 +14,7 @@ class generator;
 
   endfunction : new
 
-  task run;
+  task run();
     //used a normal for loop because forever begin gave some problems
     for(int i=0; i<100000000; i++) begin
       this.instr = new();

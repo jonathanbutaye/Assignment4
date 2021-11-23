@@ -59,7 +59,7 @@ class environment;
       /* start the downstream ********************/
       fork
         this.gen.run();
-        this.scb.run(2100);
+        this.scb.run();
       join
 
       /* wait for some spin down *****************/
