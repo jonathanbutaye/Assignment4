@@ -27,6 +27,20 @@ module top;
   // SV testing 
   test tst(theInterface);
 
+  covergroup cg1 @(posedge clock);
+    option.at_least = 500;
+
+    c1: coverpoint theInterface.instruction[7:3];
+
+    iff(theInterface.valid) {
+      bins ADC = {5'b10001};
+    }
+
+  endgroup
+
+  cg1 cg_inst = new;
+
+
 endmodule : top
 
 `endif
