@@ -17,3 +17,7 @@ vlog -sv test.sv
 echo "compile 'DUT'"
 vcom ALU.vhd
 vcom gbprocessor.vhd
+
+vsim top
+run 1 ms
+coverage report -details
