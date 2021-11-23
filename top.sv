@@ -30,7 +30,7 @@ module top;
   covergroup cg1 @(posedge clock);
     option.at_least = 500;
 
-    cpADC: coverpoint theInterface.instruction[7:3]
+    cpADC: coverpoint theInterface.instr[7:3]
 
     iff(theInterface.valid) {
       bins ADC = {5'b10001};
