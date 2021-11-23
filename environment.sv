@@ -30,10 +30,10 @@ class environment;
   function new(virtual GBP_iface ifc);
     this.ifc = ifc;
 
-    this.gen2drv = new(2200);
-    this.gen2che = new(2200);
-    this.mon2che = new(2200);
-    this.che2scb = new(2200);
+    this.gen2drv = new(100000);
+    this.gen2che = new(100000);
+    this.mon2che = new(100000);
+    this.che2scb = new(100000);
 
     this.model = new();
     this.gen = new(this.gen2drv, this.gen2che);
