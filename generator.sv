@@ -14,9 +14,8 @@ class generator;
 
   endfunction : new
 
-  task run();
-    //used a normal for loop because forever begin gave some problems
-    for(int i=0; i<100000000; i++) begin
+  task run;
+    for(int i=0; i<2200; i++) begin
       this.instr = new();
       this.instr.instruction_constraint.constraint_mode(1);
       void'(this.instr.randomize());
