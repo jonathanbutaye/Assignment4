@@ -20,7 +20,8 @@ class scoreboard;
     byte result;
     this.NO_tests = NOT;
 
-    while (this.no_tests_done < this.NO_tests)
+    //while (this.no_tests_done < this.NO_tests)
+    while ($get_coverage != 100)    
     begin
       this.che2scb.get(result);
 
