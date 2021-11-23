@@ -47,8 +47,9 @@ module top;
     }
 
     //Cross coverpoint between the the two coverpoints above
+    //if ADC, SBC or CP is executed with an carry in the counter is elevated
     cpOperationsAndCarry: cross cpOperationsAdcSbcCp, cpCarryInFlagSet {
-      bins carryInADC = binsof(cpOperationsAdcSbcCp) && binsof(cpCarryInFlagSet);
+      bins carryInAndOneOfTheSelectedOperations = binsof(cpOperationsAdcSbcCp) && binsof(cpCarryInFlagSet);
     }
 
   endgroup
